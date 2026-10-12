@@ -1,0 +1,33 @@
+:root{--red:#b3202a;--dark:#1f2430;--bg:#faf7f2;--alt:#f0ebe3;--line:#e4ded4;--gray:#5b6270;--blue:#2f5d8a}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--dark);line-height:1.5}
+header{background:var(--dark);color:#faf7f2;padding:28px 24px}
+header h1{margin:0 0 4px;font-size:1.6rem}
+header p{margin:0;color:#b8bfcc;font-size:.95rem}
+main{max-width:1100px;margin:0 auto;padding:24px;display:grid;gap:20px}
+section.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+h2{margin:0 0 12px;font-size:1.15rem;color:var(--red)}
+textarea,input[type=text],select{width:100%;padding:10px;border:1px solid #cfc8bc;border-radius:8px;font:inherit;background:#fff}
+textarea{min-height:200px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem}
+button{background:var(--red);color:#fff;border:0;border-radius:8px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer}
+button.secondary{background:var(--dark)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.row>*{flex:0 0 auto}
+.grow{flex:1 1 260px!important}
+.hint{color:var(--gray);font-size:.88rem;margin:6px 0 0}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th{background:var(--dark);color:#faf7f2;text-align:left;padding:8px 12px}
+td{padding:8px 12px;border-bottom:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:8px}
+.stat{background:var(--alt);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:1.25rem}
+.stat span{color:var(--gray);font-size:.85rem}
+.result{border-bottom:1px solid var(--line);padding:12px 0}
+.result:last-child{border-bottom:0}
+.badge{background:var(--red);color:#fff;border-radius:20px;padding:2px 10px;font-size:.8rem;margin-left:8px}
+mark{background:#ffe08a;padding:0 2px;border-radius:3px}
+.snip{color:#333;font-size:.95rem;margin-top:4px}
+.msg{color:var(--gray);padding:6px 0}
+.err{color:var(--red);font-weight:600}
+footer{text-align:center;color:var(--gray);font-size:.85rem;padding:24px}
