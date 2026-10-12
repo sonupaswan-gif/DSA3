@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full-Text Search Engine on a Suffix-Array Index</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Full-Text Search Engine on a Suffix-Array Index</h1>
+  <p>Data Structures and Algorithms – 3 (25CS2103E) · K L (Deemed to be) University</p>
+</header>
+<main>
+
+<section class="card">
+  <h2>1. Load documents</h2>
+  <textarea id="docs" spellcheck="false"></textarea>
+  <p class="hint">Separate documents with a line containing only <code>---</code>. You can also load .txt files; each file becomes one document.</p>
+  <div class="row">
+    <input type="file" id="files" accept=".txt,text/plain" multiple>
+    <button id="build">Build index</button>
+    <button class="secondary" id="reset" type="button">Reset sample documents</button>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
+
+<section class="card">
+  <h2>2. Search</h2>
+  <div class="row">
+    <input type="text" id="query" class="grow" placeholder="Type a query, e.g. suffix array">
+    <select id="qtype" style="width:auto">
+      <option value="substring">Substring</option>
+      <option value="prefix">Prefix</option>
+      <option value="phrase">Phrase</option>
+    </select>
+    <button id="search" disabled>Search</button>
+  </div>
+  <p class="hint">Search is case-sensitive. Substring: pattern anywhere. Prefix: pattern at the start of a word. Phrase: whole words in order. Results are ranked by number of occurrences.</p>
+  <div id="summary" class="msg"></div>
+  <div id="results"></div>
+</section>
+
+<section class="card">
+  <h2>3. Compare with an inverted index</h2>
+  <div class="row">
+    <label>Repetitions <input type="text" id="reps" value="500" style="width:90px"></label>
+    <button id="bench" class="secondary" disabled>Run comparison for the current query</button>
+  </div>
+  <p class="hint">Times the current query and query type on both indexes. Values come from your browser, so they change from run to run.</p>
+  <div id="benchout"></div>
+</section>
+
+<section class="card">
+  <h2>How it works</h2>
+  <p>All documents are joined into one text. A suffix array is built by prefix doubling in O(n log² n), and the LCP array is built with Kasai's algorithm in O(n). A query is located by two binary searches (lower and upper bound) that remember how many characters already match the left and right boundary suffixes, so each comparison resumes from the smaller of the two. All matching suffixes then sit in one block of the suffix array; they are grouped by document and ranked by occurrence count.</p>
+</section>
+</main>
+<footer>Team: Sai Saketh (2520090124) · Sonu Paswan (2520090204) · Guide: Mrs. CH Anitha</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
